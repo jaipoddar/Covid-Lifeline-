@@ -14,7 +14,8 @@ import { TabsPage } from './tabs/tabs.page';
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
 import { MaterialModule } from './material/material.module';
-import { RequestsComponent } from './requests/requests.component';
+import { RequestsComponent } from './dashboard/requests/requests.component';
+
 
 @NgModule({
   declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent],
