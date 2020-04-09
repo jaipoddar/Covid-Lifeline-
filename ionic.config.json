@@ -1,0 +1,7 @@
+{
+  "name": "share-need-latest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
