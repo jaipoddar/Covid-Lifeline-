@@ -1,15 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Dashboard
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Dashboard</ion-title>
-    </ion-toolbar>
+      <ion-title>Dashboard</ion-title>
+    </ion-toolbar>    
   </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>You can see all generated request here</ion-card-subtitle>
+      <ion-card-title>Dashboard</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <share-need-next-requests></share-need-next-requests>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
