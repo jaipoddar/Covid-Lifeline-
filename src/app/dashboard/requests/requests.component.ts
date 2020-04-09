@@ -3,6 +3,7 @@ import {Component} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { ToastController } from '@ionic/angular';
 export interface PeriodicElement {
   requestNo: number;
   description: string;
@@ -19,6 +20,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {requestNo: 8, description: 'Oxygen'},
   {requestNo: 9, description: 'Fluorine'},
   {requestNo: 10, description: 'Neon'},
+  {requestNo: 11, description: 'Oxygen'}
 ];
 
 /**
@@ -30,7 +32,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./requests.component.scss'],
 })
 export class RequestsComponent {
-  constructor(private _snackBar: MatSnackBar){
+  constructor(public toastController: ToastController){
     
   }
   displayedColumns: string[] = ['select', 'requestNo', 'description'];
@@ -43,11 +45,15 @@ export class RequestsComponent {
     const numRows = this.dataSource.data.length;
     return numSelected === numRows;
   }
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
+  async presentToast() {
+    const toast = await this.toastController.create({
+      header: 'Accept',      
+      position: 'top',
+      message: 'Completed Successfully !!',
+      duration: 2000
     });
-  }  
+    toast.present();
+  }
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
