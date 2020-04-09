@@ -8,11 +8,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardPage } from './dashboard/dashboard.page';
+import { TabsPage } from './tabs/tabs.page';
+import { AboutPage } from './about/about.page';
+import { ContactPage } from './contact/contact.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule],
   providers: [
     StatusBar,
     SplashScreen,
