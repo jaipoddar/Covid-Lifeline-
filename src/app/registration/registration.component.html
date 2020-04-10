@@ -1,36 +1,34 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-title text-center>Registration</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-12> <ion-input [(ngModel)]="tempUserDetail.name" name="Name" placeholder="Enter Name"></ion-input>
-    </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12><ion-input [(ngModel)]="tempUserDetail.email" name="Email" placeholder="Enter Email"></ion-input></ion-col>
+  <form [formGroup]="tempUserDetail"> 
+    <ion-item> 
+       <ion-input type="text"   formControlName="name" name="Name" placeholder="Enter Name" required></ion-input>
+    </ion-item>
+    <ion-item> 
+       <ion-input type="email" formControlName="email" name="Email" placeholder="Enter Email" required></ion-input> 
+    </ion-item>
+    <ion-item> 
+       <ion-input type="text"   formControlName="phone" name="Phone" placeholder="Enter Phone" required></ion-input>  
+    </ion-item>
+    <ion-item> 
+      <ion-input type="text"    formControlName="societyName" name="SocietyName" placeholder="Enter SocietyName" required></ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-input  type="text"   formControlName="address" name="Address"  placeholder="Enter Address" required></ion-input>
+    </ion-item>
       
-    </ion-row>
-    <ion-row>
-      <ion-col col-12><ion-input  [(ngModel)]="tempUserDetail.phone" name="Phone" placeholder="Enter Phone"></ion-input> </ion-col>
-      
-    </ion-row>
-    <ion-row>  
-      <ion-col col-12> <ion-input  [(ngModel)]="tempUserDetail.societyName" name="SocietyName" placeholder="Enter SocietyName"></ion-input></ion-col>
-     
-    </ion-row>
-    <ion-row>
-      <ion-col col-12> <ion-input   [(ngModel)]="tempUserDetail.address" name="Address"  placeholder="Enter Address"></ion-input></ion-col>
-      
-    </ion-row>
-    <ion-row>
-      
-    </ion-row>
-  </ion-grid>
-  <div #map id="map"></div>
-  <ion-grid>
-    <ion-button color="primary" (click) ="RegisterUser()">Register</ion-button> 
-  </ion-grid> 
+    <ion-item> 
+    <div #map id="map"></div>
+  </ion-item>
+  <ion-item> 
+    <ion-button type="submit" [disabled]="!tempUserDetail.valid" color="primary" (click) ="RegisterUser()">Register</ion-button>  
+  </ion-item>
+</form>
 </ion-content>  

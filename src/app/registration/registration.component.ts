@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular'; 
+import { NavController, LoadingController, ToastController } from '@ionic/angular'; 
 import {} from 'googlemaps';
 import { Plugins, Geolocation } from '@capacitor/core';
 import { ShareNeedService } from '../share/share-need.service';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'share-need-next-registration',
@@ -11,19 +13,21 @@ import { ShareNeedService } from '../share/share-need.service';
 })
 export class RegistrationComponent implements OnInit, AfterViewInit {
   @ViewChild('map', {static:true}) mapElement: ElementRef;
-  map: any; 
-  public tempUserDetail = {
-    name:"", 
-    email:"",
-    phone:"",
-    societyName:"",
-    address:"",
-    lat:"",
-    lng:""
-  }; 
+  map: any;  
+  tempUserDetail = this.fb.group(
+    { 
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      societyName: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      lat: new FormControl('', Validators.required),
+      lng: new FormControl('', Validators.required),
+    }
+  );
   public markers: any[] = [];
   public infowindow: any;
-  constructor(public navCtrl: NavController, public sv:ShareNeedService, public loadingController: LoadingController) { } 
+  constructor(private fb: FormBuilder,public navCtrl: NavController, public sv:ShareNeedService, public loadingController: LoadingController, private router: Router, public toastController: ToastController,) { } 
   async presentLoading() {
     const loading = await this.loadingController.create({
       message: 'Please wait...',
@@ -34,6 +38,15 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     const { role, data } = await loading.onDidDismiss();
     console.log('Loading dismissed!');
   } 
+  async presentToast() {
+    const toast = await this.toastController.create({
+      header: 'Ok',      
+      position: 'top',
+      message: 'saved Successfully !!',
+      duration: 2000
+    });
+    toast.present();
+  }
   ngOnInit() {
     this.presentLoading() 
     this.loadMap();
@@ -79,6 +92,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
         position: latLng,
         draggable:true
     });
+    this.tempUserDetail.controls['lat'].setValue(marker.getPosition().lat());
+      this.tempUserDetail.controls['lng'].setValue(marker.getPosition().lat());  
     marker.addListener("dragend", this.GetMarkerLocation.bind(this))
     this.markers.push(marker); 
 }
@@ -98,7 +113,7 @@ public  getAddress(latLng:any): any{
           console.log(results)
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             let address= results.formatted_address;
-            this.tempUserDetail.address=address;
+            this.tempUserDetail.controls['address'].setValue(address); 
           }
         });
       }
@@ -109,13 +124,19 @@ public GetMarkerLocation (marker:any):void{
   this.getAddress(marker.latLng);
   } 
   public RegisterUser ( ):void{ 
+    this.tempUserDetail.markAllAsTouched();
+    if(this.tempUserDetail.status!="INVALID")
+    {
     this.sv.getUserList().subscribe((data :any)=>{
-      this.tempUserDetail.lat=this.markers[0].getPosition().lat();
-      this.tempUserDetail.lng=this.markers[0].getPosition().lng();
-      data.push(this.tempUserDetail);
+      this.tempUserDetail.controls['lat'].setValue(this.markers[0].getPosition().lat());
+      this.tempUserDetail.controls['lng'].setValue(this.markers[0].getPosition().lat()); 
+      data.push(this.tempUserDetail.getRawValue());
       localStorage.setItem('userList', JSON.stringify(data));
-      localStorage.setItem('userDetails', JSON.stringify(this.tempUserDetail));
+      localStorage.setItem('userDetails', JSON.stringify(this.tempUserDetail.getRawValue()));
       console.log(data);
-    })
+      this.presentToast();
+      this.router.navigateByUrl('/tabs/dashboard');
+      })
     }
+   }
 }
