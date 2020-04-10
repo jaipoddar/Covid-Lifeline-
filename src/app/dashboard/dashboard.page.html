@@ -27,7 +27,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Add Request</ion-card-subtitle>
+            <ion-card-subtitle>Request</ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -41,8 +41,9 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>My Requests <ion-badge color="success">30</ion-badge>
-
+            <ion-card-subtitle>
+              <ion-text>My Req(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.myRequest.length}}</ion-badge>
             </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
@@ -55,7 +56,10 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>All Requests <ion-badge color="success">65</ion-badge></ion-card-subtitle>
+            <ion-card-subtitle>              
+              <ion-text>All Req(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.allRequest.length}}</ion-badge>
+            </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -69,7 +73,10 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Closed Requests <ion-badge color="success">35</ion-badge></ion-card-subtitle>
+            <ion-card-subtitle>              
+              <ion-text>Closed Req(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.closedRequest.length}}</ion-badge>
+            </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>

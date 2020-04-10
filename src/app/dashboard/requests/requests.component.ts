@@ -5,25 +5,15 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import {switchMap} from 'rxjs/operators';
 import { Tasks } from 'src/app/share/tasks.enum';
-export interface PeriodicElement {
+import { ShareNeedService } from 'src/app/share/share-need.service';
+export interface Groceries {
   priority: string;
   description: string;
   expireOn: string;
+  taskStatus: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {priority: 'Critical', description: 'Mobile charger',expireOn:'12-03-2020'},
-  {priority: 'Normal', description: 'Aata',expireOn:'20-06-2020'},
-  {priority: 'Critical', description: 'Soap',expireOn:'15-12-2020'},
-  {priority: 'Normal', description: 'Pulse',expireOn:'10-11-2020'},
-  {priority: 'Critical', description: 'Soyabean',expireOn:'19-09-2020'},
-  {priority: 'Normal', description: 'Water',expireOn:'13-06-2020'},
-  {priority: 'Critical', description: 'Laptop',expireOn:'3-03-2020'},
-  {priority: 'Normal', description: 'Rice',expireOn:'25-02-2020'},
-  {priority: 'Normal', description: 'Floor',expireOn:'17-04-2020'},
-  {priority: 'Critical', description: 'Corn',expireOn:'27-03-2020'},
-  {priority: 'Normal', description: 'Fruits',expireOn:'12-02-2020'}
-];
+const ELEMENT_DATA: Groceries[] = [];
 
 /**
  * @title Table with selection
@@ -34,17 +24,37 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./requests.component.scss'],
 })
 export class RequestsComponent implements OnInit {
-  constructor(public toastController: ToastController, private route: ActivatedRoute) {
+  constructor(public toastController: ToastController, private route: ActivatedRoute, public shareNeedService: ShareNeedService) {
   }
-  status = Tasks[Tasks["All Request"]];  
+  status = Tasks[Tasks["All Requests"]];
+  taskId = Tasks["All Requests"];
+  displayedColumns: string[] = ['select', 'priority', 'description','expireOn'];
+  dataSource = new MatTableDataSource<Groceries>(ELEMENT_DATA);
+  selection = new SelectionModel<Groceries>(true, []);
   ngOnInit() {
+    console.log(this.shareNeedService);
     this.route.paramMap.subscribe(params => {
-      this.status =  Tasks[params.get('id')];      
+      let id = +params.get('id');
+      this.taskId = id;
+      this.status =  Tasks[id];
+      switch (id) {
+        case 1:     
+        this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.myRequest);     
+          break;
+          case 2:     
+          this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.allRequest);     
+            break;
+            case 3:   
+            this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.closedRequest);       
+              break;      
+        default:
+          this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.allRequest);
+          break;
+      }
+      
+      this.selection = new SelectionModel<Groceries>(true, []);   
     });
   }
-  displayedColumns: string[] = ['select', 'priority', 'description','expireOn'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -69,7 +79,7 @@ export class RequestsComponent implements OnInit {
   }
 
   /** The label for the checkbox on the passed row */
-  checkboxLabel(row?: PeriodicElement): string {
+  checkboxLabel(row?: Groceries): string {
     if (!row) {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
