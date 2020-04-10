@@ -1,0 +1,35 @@
+<ion-header>    
+  <ion-toolbar>
+    <ion-title>Add Request</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <form [formGroup]="addRequest">
+      <ion-item>
+        <ion-textarea rows="3" placeholder="Enter details here..." formControlName="details" required></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Is Critical</ion-label>
+        <ion-checkbox color="primary" formControlName="isCritical" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select placeholder="Select One" formControlName="category" required>
+          <ion-select-option *ngFor="let category of categories; index as i;" [value]="category">{{category.key}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Valid Till</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" display-timezone="utc" formControlName="validity" required>
+        </ion-datetime>
+      </ion-item>
+      <ion-button (click)="addNewRequest($event)" [disabled]="!addRequest.valid">Submit</ion-button>
+      <ion-button style="float: right; margin-right: 20px;" [routerLink]="['/dashboard']">Cancel</ion-button>
+    </form>
+  </ion-list>
+</ion-content>
