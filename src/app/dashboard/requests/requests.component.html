@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <ion-text>{{status}}</ion-text>
+        <ion-badge *ngIf="taskId==1" color="success">{{shareNeedService.myRequest.length}}</ion-badge>
+        <ion-badge *ngIf="taskId==2" color="success">{{shareNeedService.allRequest.length}}</ion-badge>
+        <ion-badge *ngIf="taskId==3" color="success">{{shareNeedService.closedRequest.length}}</ion-badge>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <!-- <th mat-header-cell *matHeaderCellDef>
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()"
+                    [aria-label]="checkboxLabel()">
+      </mat-checkbox>      
+    </th> -->
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+
+          <!-- <td mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)"
+                    [aria-label]="checkboxLabel(row)">
+      </mat-checkbox>
+    </td> -->
+          <td mat-cell *matCellDef="let element">
+            <ion-icon (click)="presentToast()" name="create"> </ion-icon>
+          </td>
+        </ng-container>
+
+        <!-- Priority Column -->
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef> Priority</th>
+          <td mat-cell *matCellDef="let element">
+            <ion-text>{{element.priority}}</ion-text>
+          </td>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element">
+            <ion-text>{{element.description}}</ion-text>
+          </td>
+        </ng-container>
+
+        <!-- Expire On Column -->
+        <ng-container matColumnDef="expireOn">
+          <th mat-header-cell *matHeaderCellDef> Expire On </th>
+          <td mat-cell *matCellDef="let element">
+            <ion-text>{{element.expireOn}}</ion-text>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+        </tr>
+      </table>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
