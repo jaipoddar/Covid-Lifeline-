@@ -19,10 +19,11 @@ import { RequestsComponent } from './dashboard/requests/requests.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JoinGroupPage } from './joingroup/joingroup.page';
 import { FormsModule } from '@angular/forms';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent,AddRequestPage, JoinGroupPage],
+  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent,AddRequestPage, JoinGroupPage, RegistrationComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule, FormsModule],
   providers: [

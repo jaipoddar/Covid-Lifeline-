@@ -8,6 +8,7 @@ import { ContactPage } from './contact/contact.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './dashboard/requests/requests.component';
 import { JoinGroupPage } from './joingroup/joingroup.page';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
        { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
        { path: 'dashboard', component: DashboardPage},
        { path: 'about', component: AboutPage},
-       { path: 'contact', component: ContactPage}
+       { path: 'contact', component: ContactPage},
+       { path: 'registration', component: RegistrationComponent}
     ]
   }
 ];

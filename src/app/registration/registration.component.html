@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title text-center>Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12> <ion-input [(ngModel)]="tempUserDetail.name" name="Name" placeholder="Enter Name"></ion-input>
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12><ion-input [(ngModel)]="tempUserDetail.email" name="Email" placeholder="Enter Email"></ion-input></ion-col>
+      
+    </ion-row>
+    <ion-row>
+      <ion-col col-12><ion-input  [(ngModel)]="tempUserDetail.phone" name="Phone" placeholder="Enter Phone"></ion-input> </ion-col>
+      
+    </ion-row>
+    <ion-row>  
+      <ion-col col-12> <ion-input  [(ngModel)]="tempUserDetail.societyName" name="SocietyName" placeholder="Enter SocietyName"></ion-input></ion-col>
+     
+    </ion-row>
+    <ion-row>
+      <ion-col col-12> <ion-input   [(ngModel)]="tempUserDetail.address" name="Address"  placeholder="Enter Address"></ion-input></ion-col>
+      
+    </ion-row>
+    <ion-row>
+      
+    </ion-row>
+  </ion-grid>
+  <div #map id="map"></div>
+  <ion-grid>
+    <ion-button color="primary" (click) ="RegisterUser()">Register</ion-button> 
+  </ion-grid> 
+</ion-content>  
