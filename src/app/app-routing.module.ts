@@ -17,12 +17,12 @@ const routes: Routes = [
   },
   { path: 'requests/:id', component: RequestsComponent},
   { path: 'joingroup', component: JoinGroupPage},
+  { path: 'addrequest', component: AddRequestPage},
   {
     path: 'tabs', component: TabsPage, children:
     [
        { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-       { path: 'dashboard', component: DashboardPage},
-       { path: 'addrequest', component: AddRequestPage},
+       { path: 'dashboard', component: DashboardPage},     
        { path: 'about', component: AboutPage},
        { path: 'contact', component: ContactPage}
     ]

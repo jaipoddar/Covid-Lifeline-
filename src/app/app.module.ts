@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent, JoinGroupPage],
+  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent,AddRequestPage, JoinGroupPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule, FormsModule],
   providers: [
