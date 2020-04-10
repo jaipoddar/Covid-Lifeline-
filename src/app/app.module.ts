@@ -16,12 +16,14 @@ import { ContactPage } from './contact/contact.page';
 import { MaterialModule } from './material/material.module';
 import { RequestsComponent } from './dashboard/requests/requests.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JoinGroupPage } from './joingroup/joingroup.page';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent],
+  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent, JoinGroupPage],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,

@@ -5,6 +5,7 @@ import { DashboardPage } from './dashboard/dashboard.page';
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
 import { RequestsComponent } from './dashboard/requests/requests.component';
+import { JoinGroupPage } from './joingroup/joingroup.page';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
+  { path: 'joingroup', component: JoinGroupPage},
   {
     path: 'tabs', component: TabsPage, children:
     [
