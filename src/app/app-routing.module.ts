@@ -15,6 +15,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
+  { path: 'addrequest', component: AddRequestPage},
+  { path: 'dashboard', component: DashboardPage},
   {
     path: 'tabs', component: TabsPage, children:
     [

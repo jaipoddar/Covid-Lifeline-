@@ -1,6 +1,9 @@
-<ion-header>
+<ion-header>    
   <ion-toolbar>
     <ion-title>Add Request</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -26,7 +29,7 @@
         </ion-datetime>
       </ion-item>
       <ion-button (click)="addNewRequest($event)" [disabled]="!addRequest.valid">Submit</ion-button>
-      <ion-button style="float: right; margin-right: 20px;">Cancel</ion-button>
+      <ion-button style="float: right; margin-right: 20px;" [routerLink]="['/dashboard']">Cancel</ion-button>
     </form>
   </ion-list>
 </ion-content>
