@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardPage } from './dashboard/dashboard.page';
+import {AddRequestPage} from './add-request/add-request.page';
 import { TabsPage } from './tabs/tabs.page';
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
