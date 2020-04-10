@@ -16,10 +16,11 @@ import { ContactPage } from './contact/contact.page';
 import { MaterialModule } from './material/material.module';
 import { RequestsComponent } from './dashboard/requests/requests.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent],
+  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent, RegistrationComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule],
   providers: [
