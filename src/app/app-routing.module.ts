@@ -22,7 +22,7 @@ const routes: Routes = [
     path: 'tabs', component: TabsPage, children:
     [
        { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-       { path: 'dashboard', component: DashboardPage},     
+       { path: 'dashboard', component: DashboardPage},
        { path: 'about', component: AboutPage},
        { path: 'contact', component: ContactPage}
     ]
