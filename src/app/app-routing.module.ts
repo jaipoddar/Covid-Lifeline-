@@ -4,6 +4,7 @@ import { TabsPage } from './tabs/tabs.page';
 import { DashboardPage } from './dashboard/dashboard.page';
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
+import { RequestsComponent } from './dashboard/requests/requests.component';
 
 const routes: Routes = [
   {
@@ -11,11 +12,12 @@ const routes: Routes = [
     redirectTo: 'tabs',
     pathMatch: 'full'
   },
+  { path: 'requests/:id', component: RequestsComponent},
   {
     path: 'tabs', component: TabsPage, children:
     [
        { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-       { path: 'dashboard', component: DashboardPage},
+       { path: 'dashboard', component: DashboardPage},       
        { path: 'about', component: AboutPage},
        { path: 'contact', component: ContactPage}
     ]

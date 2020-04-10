@@ -1,10 +1,90 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title text-center>Share Buddy</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-card>
-    <ion-card-header>      
-      <ion-card-subtitle>All open requests</ion-card-subtitle>      
-    </ion-card-header>
-    <ion-card-content>
-      <share-need-next-requests></share-need-next-requests>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card color="danger">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="person-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>Profile</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+
+        <ion-card color="danger">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="add-circle-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>Add Request</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card color="danger" [routerLink]="['/requests',1]">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="bookmark-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>My Requests <ion-badge color="success">30</ion-badge>
+
+            </ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card color="danger" [routerLink]="['/requests',2]">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="bookmarks-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>All Requests <ion-badge color="success">65</ion-badge></ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card color="danger" [routerLink]="['/requests',3]">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="briefcase-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>Closed Requests <ion-badge color="success">35</ion-badge></ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card color="danger">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="settings-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>Settings</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
