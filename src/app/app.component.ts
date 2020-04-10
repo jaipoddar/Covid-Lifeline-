@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ShareNeedService } from './share/share-need.service';
 import { Groceries } from './dashboard/requests/requests.component';
 import { Tasks } from './share/tasks.enum';
+import { Groups } from './joingroup/joingroup.page';
 const dataPath = 'assets/data/share-need.json';
 @Component({
   selector: 'app-root',
@@ -28,8 +29,10 @@ export class AppComponent {
         this.shareNeedService.myRequest = data.filter( x => x.taskStatus == Tasks['My Requests']);
         this.shareNeedService.closedRequest = data.filter( x => x.taskStatus == Tasks['Closed Requests']);
       }
-      this.initializeApp();
     });
+
+    this.initializeApp();
+
   }
 
   initializeApp() {

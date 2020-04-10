@@ -7,6 +7,7 @@ import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './dashboard/requests/requests.component';
+import { JoinGroupPage } from './joingroup/joingroup.page';
 
 const routes: Routes = [
   {
@@ -15,8 +16,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
-  { path: 'addrequest', component: AddRequestPage},
-  { path: 'dashboard', component: DashboardPage},
+  { path: 'joingroup', component: JoinGroupPage},
   {
     path: 'tabs', component: TabsPage, children:
     [
