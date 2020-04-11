@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class ShareNeedService {
   private _jsonURL = 'assets/data/userList.json';
+  private _jsonGroupURL = 'assets/data/join-group.json';
   constructor( private http: HttpClient) { 
     this.allRequest = [];
     this.myRequest = [];
@@ -25,5 +26,8 @@ export class ShareNeedService {
  
  public getUserList(): Observable<any> {
     return this.http.get(this._jsonURL);
+  }
+  public getGrouList(): Observable<any> {
+    return this.http.get(this._jsonGroupURL);
   }
 }
