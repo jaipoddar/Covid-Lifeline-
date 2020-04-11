@@ -33,22 +33,31 @@ ion-icon {
     font-size: 64px;
   }
   ion-content, ion-grid{
+    --background:#d32f2f;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d32f2f+0,d32f2f+37,d15555+70,d16c6c+100 */
 background: #d32f2f; /* Old browsers */
-background: -moz-linear-gradient(top,  #d32f2f 0%, #d32f2f 37%, #d15555 70%, #d16c6c 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #d32f2f 0%,#d32f2f 37%,#d15555 70%,#d16c6c 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #d32f2f 0%,#d32f2f 37%,#d15555 70%,#d16c6c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d32f2f', endColorstr='#d16c6c',GradientType=0 ); /* IE6-9 */
-
+background-color:#d32f2f;
   }
   ion-title{
     background-image: url("src/assets/images/ico.png");
     background-repeat: no-repeat;
-    height: 44px;
+    height: 68px;
     padding-left: 46px;
     position: relative;
     left: 10px;
     color: #f55246;
+    font-size: 26px;
+    background-position: 0 44%;
+    font-family: arial;
+    letter-spacing: 1px;
+  }
+  ion-toolbar[_ngcontent-igj-c1] {
+  
+    background: #d32f2f!important;
+    --ion-toolbar-background:#d32f2f;
+}
+  .toolbar-background{
+    background: #d32f2f;
   }
   
   .md.title-default.hydrated{
@@ -70,4 +79,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d32f2f', end
   }
   ion-icon[_ngcontent-mma-c3] {
     font-size: 40px;
+}
+
+.hydrated {
+  visibility: inherit;
+  --ion-item-background: transparent;
+  --ion-text-color: #fff;
+  --color: #fff;
+}
+.mat-table {
+  background: transparent;
+  table-layout: fixed;
+}
+
+.button-inner{
+  color: #000;
+
+}
+.logo{
+  background-image: url("src/assets/images/logo-BB.png");
+    background-repeat: no-repeat;
+    width: 400px;
+    height: 220px;
+    margin-top: 115px
+}
+.sc-ion-input-ios-h {
+  --padding-top: 30px;
+  --padding-bottom: 30px;
+  --padding-start: 0;
+  font-size: inherit;
+}
+.item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
+  padding: 20px 0;
 }
