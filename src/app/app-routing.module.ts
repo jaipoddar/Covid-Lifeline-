@@ -14,22 +14,18 @@ import { AuthGuardService } from './shared/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs/dashboard',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
   { path: 'joingroup', component: JoinGroupPage},
   { path: 'addrequest', component: AddRequestPage},
   { path: 'registration', component: RegistrationComponent},
-  {
-    path: 'tabs', component: TabsPage, children:
-    [
-       { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuardService]},
-       { path: 'dashboard', component: DashboardPage, canActivate: [AuthGuardService]},
-       { path: 'about', component: AboutPage},
-       { path: 'contact', component: ContactPage}
-    ]
-  }
+  { path: 'dashboard', component: DashboardPage, canActivate: [AuthGuardService]},
+  { path: 'about', component: AboutPage},
+  { path: 'contact', component: ContactPage},
+  { path: 'tabs', component: ContactPage},
+  { path: '**', component: DashboardPage}    
 ];
 
 @NgModule({
