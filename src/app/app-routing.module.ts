@@ -16,7 +16,6 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'creategroup',
-    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
