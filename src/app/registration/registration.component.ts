@@ -61,11 +61,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   }
   loadMap(){
 
-    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+    let latLng = new google.maps.LatLng(22.845841256578144, 81.96129556849517);
 
     let mapOptions = {
       center: latLng,
-      zoom: 15,
+      zoom: 4,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       scrollwheel:false
     }
