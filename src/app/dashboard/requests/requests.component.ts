@@ -42,7 +42,7 @@ export class RequestsComponent implements OnInit {
     });
   }
   setDatasource(id:number){
-    this.dataSource = [];
+    
     switch (id) {
       case 1:     
       this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.myRequest);     
