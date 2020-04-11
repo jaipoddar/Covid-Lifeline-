@@ -23,13 +23,13 @@ export class AppComponent {
     private shareNeedService: ShareNeedService
 
   ) {
-    // httpClient.get<Groceries[]>(dataPath).subscribe( (data: Groceries[]) => {
-    //   if (data && data.length > 0) {
-    //     this.shareNeedService.allRequest = data;
-    //     this.shareNeedService.myRequest = data.filter( x => x.taskStatus == Tasks['My Requests']);
-    //     this.shareNeedService.myTasks = data.filter( x => x.taskStatus == Tasks['My Tasks']);
-    //   }
-    // });
+    httpClient.get<Groceries[]>(dataPath).subscribe( (data: Groceries[]) => {
+      if (data && data.length > 0) {
+        this.shareNeedService.allRequest = data;
+        this.shareNeedService.myRequest = data.filter( x => x.taskStatus == Tasks['My Requests']);
+        this.shareNeedService.myTasks = data.filter( x => x.taskStatus == Tasks['My Tasks']);
+      }
+    });
 
     this.initializeApp();
 
