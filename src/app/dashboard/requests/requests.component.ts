@@ -13,6 +13,7 @@ export class Groceries {
   validity: string;
   taskStatus: number;
   days: string;
+  description: string;
   user: User = new User();
 }
 export class User {
@@ -75,7 +76,7 @@ export class RequestsComponent implements OnInit {
     }
     if(this.dataSource && this.dataSource.data.length>0){
     this.dataSource.data.forEach( x => {
-      x.days = 'Today';      
+      x.days = 'Today';             
     });
     }
   }

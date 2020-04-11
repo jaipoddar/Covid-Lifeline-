@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="light">
-    <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="dashboard"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>    
   </ion-toolbar>  
 </ion-header>
 <ion-content *ngIf="showGrid">
@@ -34,7 +37,7 @@
         <ng-container matColumnDef="details">
           <th mat-header-cell *matHeaderCellDef> Description </th>
           <td mat-cell *matCellDef="let element">
-            <ion-text>Medicine</ion-text>
+            <ion-text>{{element.description}}</ion-text>
           </td>
         </ng-container>
 
