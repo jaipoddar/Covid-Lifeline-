@@ -4,12 +4,14 @@
   </ion-toolbar>  
 </ion-header>
 <ion-content *ngIf="showGrid">
-  <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Back</ion-button>
+
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>
+        <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Back</ion-button>
         <ion-text>{{status}}</ion-text>
         <ion-badge  color="success">{{dataSource.data.length}}</ion-badge>
+
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
