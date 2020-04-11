@@ -4,7 +4,7 @@
   </ion-toolbar>  
 </ion-header>
 <ion-content *ngIf="showGrid">
-  
+  <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Back</ion-button>
   <ion-card>
     <ion-card-header>
       <ion-card-subtitle>
@@ -46,10 +46,10 @@
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
         </tr>
       </table>
-      <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Cancel</ion-button>
+      
     </ion-card-content>
   </ion-card>
 </ion-content>
