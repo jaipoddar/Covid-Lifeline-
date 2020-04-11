@@ -26,6 +26,7 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       group: new FormControl('', Validators.required),
     }
   );
+  tempGroupList=[];
   public markers: any[] = [];
   public infowindow: any;
   constructor(private fb: FormBuilder,public navCtrl: NavController, public sv:ShareNeedService, public loadingController: LoadingController, private router: Router, public toastController: ToastController,) { } 
@@ -41,14 +42,17 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   } 
   async presentToast() {
     const toast = await this.toastController.create({
-      header: 'Ok',      
-      position: 'top',
+      header: '',      
+      position: 'bottom',
       message: 'saved Successfully !!',
       duration: 2000
     });
     toast.present();
   }
   ngOnInit() {
+    this.sv.getGrouList().subscribe((data :any)=>{
+      this.tempGroupList=data;
+      })
     this.presentLoading() 
     this.loadMap();
   }
@@ -62,7 +66,8 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
     let mapOptions = {
       center: latLng,
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      scrollwheel:false
     }
 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
@@ -75,7 +80,9 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
                 
                 let mapOptions = {
                   center: latLng,
-                  zoom: 15
+                  zoom: 15,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  scrollwheel:false
               };
               this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
               this.addMarker(latLng);

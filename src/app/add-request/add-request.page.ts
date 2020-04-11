@@ -37,7 +37,8 @@ export class AddRequestPage implements OnInit {
       await this.presentLoading();
       const guid = this.createGuid();
       this.addRequest.value.id = guid;
-      const userDeatils = JSON.parse(localStorage.getItem('userDeatils'));
+      this.addRequest.value.taskStatus = 1;
+      const userDeatils = JSON.parse(localStorage.getItem('userDetails'));
       this.addRequest.value.user = userDeatils;
       this.getObj.push(this.addRequest.value);
       localStorage.setItem('allRequest', JSON.stringify(this.getObj));
