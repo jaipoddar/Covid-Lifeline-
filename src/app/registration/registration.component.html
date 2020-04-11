@@ -18,7 +18,10 @@
        <ion-input type="text"   formControlName="phone" name="Phone" placeholder="Enter Phone" required></ion-input>  
     </ion-item>
     <ion-item> 
-      <ion-input type="text"    formControlName="societyName" name="SocietyName" placeholder="Enter SocietyName" required></ion-input>
+      <ion-select class="dropdownclass"  placeholder="Select One" formControlName="societyName" required>
+        <ion-select-option  class="dropdownclass"  *ngFor="let gl of tempGroupList; index as i;" [value]="gl">{{gl.groupName + ' ' + gl.shortAddress }}
+        </ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item> 
       <ion-input  type="text"   formControlName="address" name="Address"  placeholder="Enter Address" required></ion-input>
