@@ -15,7 +15,7 @@ import { AuthGuardService } from './shared/auth-guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'creategroup',
+    redirectTo: 'joingroup',
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},

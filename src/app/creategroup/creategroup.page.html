@@ -1,15 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Covid-19 Lifeline</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="tabs/dashboard"></ion-back-button>
-    </ion-buttons>    
-  </ion-toolbar>
+    </ion-buttons>
+    <ion-toolbar color="light">
+      <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
+    </ion-toolbar>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-toolbar>
-    <ion-button [routerLink]="['/joingroup']" color="success">Join Group</ion-button>
-    <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
-</ion-toolbar>
+  <!-- <ion-button (click)="showGroups = true;" color="success">Join Group</ion-button>
+  <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
+  <ion-item> 
+    <ion-input type="text"   formControlName="name" name="Name" placeholder="Enter user name" required></ion-input>
+ </ion-item>
+ <ion-item> 
+    <ion-input type="email" formControlName="email" name="Email" placeholder="Enter email" required></ion-input> 
+ </ion-item>
+ <ion-item> 
+    <ion-input type="text"   formControlName="phone" name="Phone" placeholder="Enter phone" required></ion-input>  
+ </ion-item> -->
+  <ion-card *ngIf="showGroups">
+    <ion-card-content>
+
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+
+          <td mat-cell *matCellDef="let row">
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="selectedGroup">
+              <mat-radio-button class="example-radio-button" [value]="row.groupName">
+              </mat-radio-button>
+            </mat-radio-group>
+          </td>
+
+        </ng-container>
+
+        <!-- Group Name Column -->
+        <ng-container matColumnDef="groupName">
+          <th mat-header-cell *matHeaderCellDef> Group Name </th>
+          <td mat-cell *matCellDef="let element">
+            <ion-text>{{element.groupName}}</ion-text>
+          </td>
+        </ng-container>
+
+        <!-- Address Column -->
+        <ng-container matColumnDef="shortAddress">
+          <th mat-header-cell *matHeaderCellDef> Location </th>
+          <td mat-cell *matCellDef="let element">
+            <ion-text>{{element.shortAddress}}</ion-text>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+      </table>
+      <ion-button [routerLink]="['/tabs/dashboard']" color="success">Submit</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+<app-tabs></app-tabs>
