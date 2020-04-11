@@ -5,10 +5,13 @@
 </ion-header>
 <ion-content>
   <ion-item>
-    <ion-label>Priority: {{priority}}</ion-label>
+    <ion-label>Priority: {{isCritical?'Critical':'Normal'}}</ion-label>
   </ion-item>
   <ion-item>
-    <ion-label>Descriprion: {{details}}</ion-label>
+    <ion-label>Expire : {{days}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descriprion: {{description}}</ion-label>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Notes</ion-label>

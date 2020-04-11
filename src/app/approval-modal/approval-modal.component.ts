@@ -11,10 +11,13 @@ import { ShareNeedService } from '../share/share-need.service';
 export class ApprovalModalComponent implements OnInit {
 
   constructor(public modalController: ModalController, public shareNeedService: ShareNeedService, public toastController: ToastController) { }
-  @Input() priority: string;
+  @Input() isCritical: boolean;
   @Input() details: string;
+  @Input() description: string;
   @Input() taskStatus: number;
   @Input() validity: number;
+  @Input() expireOn: number;
+  @Input() days: number;
   //@Output() refreshDashboard = new EventEmitter();
   ngOnInit() { }
   async closeModal() {
