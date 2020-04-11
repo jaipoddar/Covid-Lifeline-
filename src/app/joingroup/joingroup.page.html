@@ -44,6 +44,8 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
         </tr>
       </table>
+      <ion-button [routerLink]="['/tabs/dashboard']" color="success">Join Group</ion-button>
+      <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
