@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title text-center>Dashboard</ion-title>
+  <ion-toolbar color="light">
+    <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -14,7 +14,7 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Request</ion-card-subtitle>
+            <ion-card-subtitle>Add Request</ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -27,7 +27,7 @@
           </ion-card-header>
           <ion-card-content class="ion-text-center">
             <ion-card-subtitle>
-              <ion-text>All Request(s)</ion-text>
+              <ion-text>Open Request(s)</ion-text>
               <ion-badge color="success">{{shareNeedService.allRequest.length}}</ion-badge>
             </ion-card-subtitle>
           </ion-card-content>
@@ -59,8 +59,8 @@
           </ion-card-header>
           <ion-card-content class="ion-text-center">
             <ion-card-subtitle>
-              <ion-text>Closed Request(s)</ion-text>
-              <ion-badge color="success">{{shareNeedService.closedRequest.length}}</ion-badge>
+              <ion-text>My task(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.myTasks.length}}</ion-badge>
             </ion-card-subtitle>
           </ion-card-content>
         </ion-card>

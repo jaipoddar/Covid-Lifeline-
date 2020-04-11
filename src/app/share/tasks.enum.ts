@@ -1,5 +1,5 @@
 export enum Tasks {
     'My Requests' = 1,
-    'All Requests' = 2,
-    'Closed Requests' = 3
+    'Open Requests' = 2,
+    'My Tasks' = 3
   }

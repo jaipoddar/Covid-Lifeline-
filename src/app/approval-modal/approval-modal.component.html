@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title text-center>Help</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label>Priority: {{priority}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descriprion: {{description}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Notes</ion-label>
+    <ion-textarea [autofocus]="true"></ion-textarea>
+  </ion-item>
+  <ion-button (click)="help()">
+    <ion-icon name="hand-right-sharp"></ion-icon>
+  </ion-button>
+  <ion-button (click)="closeModal()">
+    <ion-icon name="close"></ion-icon>
+  </ion-button>
+</ion-content>
