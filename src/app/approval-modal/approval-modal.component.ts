@@ -14,7 +14,7 @@ export class ApprovalModalComponent implements OnInit {
   @Input() priority: string;
   @Input() description: string;
   @Input() taskStatus: number;
-  @Input() expireOn: number;
+  @Input() validity: number;
   //@Output() refreshDashboard = new EventEmitter();
   ngOnInit() { }
   async closeModal() {

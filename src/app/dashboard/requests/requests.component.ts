@@ -10,7 +10,7 @@ import { ApprovalModalComponent } from 'src/app/approval-modal/approval-modal.co
 export class Groceries {
   isCritical: boolean;
   details: string;
-  expireOn: string;
+  validity: string;
   taskStatus: number;
   user: User = new User();
 }
@@ -38,7 +38,7 @@ export class RequestsComponent implements OnInit {
   }
   status = Tasks[Tasks["Open Requests"]];
   taskId = Tasks["Open Requests"];
-  displayedColumns: string[] = ['select','isCritical', 'details', 'expireOn'];  
+  displayedColumns: string[] = ['select','isCritical', 'details', 'validity'];  
   selection = new SelectionModel<Groceries>(true, []);
   showGrid = true;
   myRequests: Groceries[] = new Array<Groceries>();
