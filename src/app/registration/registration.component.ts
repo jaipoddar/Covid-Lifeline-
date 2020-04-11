@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NavController, LoadingController, ToastController } from '@ionic/angular'; 
-import {} from 'googlemaps';
+import {googlemaps} from 'googlemaps';
 import { Plugins, Geolocation } from '@capacitor/core';
 import { ShareNeedService } from '../share/share-need.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -19,10 +19,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
-      societyName: new FormControl('', Validators.required),
+     // societyName: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
       lat: new FormControl('', Validators.required),
       lng: new FormControl('', Validators.required),
+      group: new FormControl('', Validators.required),
     }
   );
   tempGroupList=[];
@@ -60,11 +61,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
   }
   loadMap(){
 
-    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+    let latLng = new google.maps.LatLng(22.845841256578144, 81.96129556849517);
 
     let mapOptions = {
       center: latLng,
-      zoom: 15,
+      zoom: 4,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       scrollwheel:false
     }

@@ -9,7 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './dashboard/requests/requests.component';
 import { JoinGroupPage } from './joingroup/joingroup.page';
 import { RegistrationComponent } from './registration/registration.component';
+<<<<<<< HEAD
 import {CreategroupPage} from './creategroup/creategroup.page';
+=======
+import { AuthGuardService } from './shared/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -25,8 +28,8 @@ const routes: Routes = [
   {
     path: 'tabs', component: TabsPage, children:
     [
-       { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-       { path: 'dashboard', component: DashboardPage},
+       { path: '', redirectTo: 'dashboard', pathMatch: 'full', canActivate: [AuthGuardService]},
+       { path: 'dashboard', component: DashboardPage, canActivate: [AuthGuardService]},
        { path: 'about', component: AboutPage},
        { path: 'contact', component: ContactPage}
     ]

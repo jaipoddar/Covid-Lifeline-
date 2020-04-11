@@ -32,6 +32,7 @@ export class JoinGroupPage implements OnInit {
   dataSource = new MatTableDataSource<Groups>();
   selection = new SelectionModel<Groups>(true, []);
   selectedGroup = 'Paras Tierra';
+  showGroups = false;
 
   ngOnInit() {
     console.log(this.shareNeedService);
