@@ -19,10 +19,11 @@ export class RegistrationComponent implements OnInit, AfterViewInit {
       name: new FormControl('', Validators.required),
       email: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
-      societyName: new FormControl('', Validators.required),
+     // societyName: new FormControl('', Validators.required),
       address: new FormControl('', Validators.required),
       lat: new FormControl('', Validators.required),
       lng: new FormControl('', Validators.required),
+      group: new FormControl('', Validators.required),
     }
   );
   public markers: any[] = [];
