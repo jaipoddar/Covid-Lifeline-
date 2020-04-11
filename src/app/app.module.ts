@@ -20,10 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { JoinGroupPage } from './joingroup/joingroup.page';
 import { FormsModule } from '@angular/forms';
 import { ApprovalModalComponent } from './approval-modal/approval-modal.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
-  declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent,AddRequestPage, JoinGroupPage,ApprovalModalComponent],
+    declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent, AddRequestPage, JoinGroupPage, ApprovalModalComponent, RegistrationComponent],
   entryComponents: [ApprovalModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule, FormsModule],
   providers: [

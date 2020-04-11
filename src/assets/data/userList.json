@@ -1,0 +1,18 @@
+[
+    {
+        "name":"Apoorva",
+        "address":"Noida, Uttar Pradesh, India",
+        "phone":"1234567890",
+        "email":"bryan@gmail.com",
+        "lat":28.5355161,
+        "lng":77.3910265
+        },
+        {
+            "name":"Somya",
+            "address":"Noida, Uttar Pradesh, India",
+            "phone":"1234567890",
+            "email":"adam@gmail.com",
+            "lat":28.5155328,
+            "lng":77.4127616
+        }
+]

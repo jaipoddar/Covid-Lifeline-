@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title text-center>Registration</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/dashboard"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="tempUserDetail"> 
+    <ion-item> 
+       <ion-input type="text"   formControlName="name" name="Name" placeholder="Enter Name" required></ion-input>
+    </ion-item>
+    <ion-item> 
+       <ion-input type="email" formControlName="email" name="Email" placeholder="Enter Email" required></ion-input> 
+    </ion-item>
+    <ion-item> 
+       <ion-input type="text"   formControlName="phone" name="Phone" placeholder="Enter Phone" required></ion-input>  
+    </ion-item>
+    <ion-item> 
+      <ion-input type="text"    formControlName="societyName" name="SocietyName" placeholder="Enter SocietyName" required></ion-input>
+    </ion-item>
+    <ion-item> 
+      <ion-input  type="text"   formControlName="address" name="Address"  placeholder="Enter Address" required></ion-input>
+    </ion-item>
+      
+    <ion-item> 
+    <div #map id="map"></div>
+  </ion-item>
+  <ion-item> 
+    <ion-button type="submit" [disabled]="!tempUserDetail.valid" color="primary" (click) ="RegisterUser()">Register</ion-button>  
+  </ion-item>
+</form>
+</ion-content>  
