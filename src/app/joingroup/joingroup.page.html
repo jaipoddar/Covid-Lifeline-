@@ -1,15 +1,11 @@
-<ion-header>
-<ion-toolbar color="light">
-    <ion-title>Covid-19 Lifeline</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="tabs/dashboard"></ion-back-button>
-    </ion-buttons>    
-      <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
+
+<ion-content class="dashboardButton">
+
+  <div class="logo"></div>
   <ion-button (click)="showGroups = true;" color="success">Join Group</ion-button>
   <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
+  
+  
   <ion-card *ngIf="showGroups">
     <ion-card-content>
 
@@ -53,4 +49,3 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
-<app-tabs></app-tabs>
