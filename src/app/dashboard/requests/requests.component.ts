@@ -13,6 +13,7 @@ export class Groceries {
   validity: string;
   taskStatus: number;
   days: string;
+  expireOn:string;
   description: string;
   user: User = new User();
 }
@@ -76,7 +77,7 @@ export class RequestsComponent implements OnInit {
     }
     if(this.dataSource && this.dataSource.data.length>0){
     this.dataSource.data.forEach( x => {
-      x.days = 'Today';             
+      x.days = this.getDays(x.expireOn);             
     });
     }
   }
@@ -85,7 +86,7 @@ export class RequestsComponent implements OnInit {
     const date2:any = new Date(date);
     const diffTime = Math.abs(date2 - date1);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)).toString(); 
-    return diffDays== '1'?'Today':diffDays;    
+    return diffDays== '1'?'Today':`${diffDays} days`;    
   }
   async presentModal(element: Groceries) {
     this.showGrid = false;
