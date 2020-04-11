@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar>
-      <ion-button [routerLink]="['/tabs/dashboard']" color="success">Join Group</ion-button>
+      <ion-button (click)="showGroups = true;" color="success">Join Group</ion-button>
       <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content *ngIf="showGroups">
   <ion-card>
 
     <ion-card-content>
@@ -45,6 +45,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;">
         </tr>
       </table>
+      <ion-button [routerLink]="['/tabs/dashboard']" color="success">Submit</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
