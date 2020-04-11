@@ -16,7 +16,6 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'creategroup',
-    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},
@@ -28,7 +27,7 @@ const routes: Routes = [
   { path: 'about', component: AboutPage},
   { path: 'contact', component: ContactPage},
   { path: 'tabs', component: ContactPage},
-  { path: '**', component: DashboardPage}    
+  { path: '**', component: DashboardPage}
 ];
 
 @NgModule({
