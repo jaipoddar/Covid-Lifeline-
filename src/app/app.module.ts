@@ -27,7 +27,7 @@ import {CreategroupPage} from './creategroup/creategroup.page';
     // tslint:disable-next-line:max-line-length
     declarations: [AppComponent, DashboardPage, TabsPage, AboutPage, ContactPage, RequestsComponent, AddRequestPage, JoinGroupPage, ApprovalModalComponent, RegistrationComponent, CreategroupPage],
   entryComponents: [ApprovalModalComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule,HttpClientModule, FormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MaterialModule, HttpClientModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
