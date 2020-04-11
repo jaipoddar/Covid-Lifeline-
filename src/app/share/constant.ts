@@ -1,0 +1,1 @@
+export const applicationTitle = 'Covid-19-Lifline';

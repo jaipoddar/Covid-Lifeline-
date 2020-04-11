@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ShareNeedService } from './share/share-need.service';
 import { Groceries } from './dashboard/requests/requests.component';
 import { Tasks } from './share/tasks.enum';
+import { Groups } from './joingroup/joingroup.page';
 const dataPath = 'assets/data/share-need.json';
 @Component({
   selector: 'app-root',
@@ -26,10 +27,12 @@ export class AppComponent {
       if (data && data.length > 0) {
         this.shareNeedService.allRequest = data;
         this.shareNeedService.myRequest = data.filter( x => x.taskStatus == Tasks['My Requests']);
-        this.shareNeedService.closedRequest = data.filter( x => x.taskStatus == Tasks['Closed Requests']);
+        this.shareNeedService.myTasks = data.filter( x => x.taskStatus == Tasks['My Tasks']);
       }
-      this.initializeApp();
     });
+
+    this.initializeApp();
+
   }
 
   initializeApp() {

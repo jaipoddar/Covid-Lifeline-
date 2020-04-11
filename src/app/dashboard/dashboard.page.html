@@ -1,33 +1,35 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title text-center>Share Buddy</ion-title>
+  <ion-toolbar color="light">
+    <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid>
     <ion-row>
       <ion-col col-6>
-        <ion-card color="danger">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">
-              <ion-icon name="person-sharp"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Profile</ion-card-subtitle>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6>
-
-        <ion-card color="danger">
+        <ion-card color="danger" [routerLink]="['/addrequest']">
           <ion-card-header>
             <ion-card-title class="ion-text-center">
               <ion-icon name="add-circle-sharp"></ion-icon>
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Request</ion-card-subtitle>
+            <ion-card-subtitle>Add Request</ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card color="danger" [routerLink]="['/requests',2]">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="bookmarks-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>
+              <ion-text>Open Request(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.allRequest.length}}</ion-badge>
+            </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -42,29 +44,12 @@
           </ion-card-header>
           <ion-card-content class="ion-text-center">
             <ion-card-subtitle>
-              <ion-text>My Req(s)</ion-text>
+              <ion-text>My Request(s)</ion-text>
               <ion-badge color="success">{{shareNeedService.myRequest.length}}</ion-badge>
             </ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-6>
-        <ion-card color="danger" [routerLink]="['/requests',2]">
-          <ion-card-header>
-            <ion-card-title class="ion-text-center">
-              <ion-icon name="bookmarks-sharp"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>              
-              <ion-text>All Req(s)</ion-text>
-              <ion-badge color="success">{{shareNeedService.allRequest.length}}</ion-badge>
-            </ion-card-subtitle>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-    <ion-row>
       <ion-col col-6>
         <ion-card color="danger" [routerLink]="['/requests',3]">
           <ion-card-header>
@@ -73,10 +58,24 @@
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>              
-              <ion-text>Closed Req(s)</ion-text>
-              <ion-badge color="success">{{shareNeedService.closedRequest.length}}</ion-badge>
+            <ion-card-subtitle>
+              <ion-text>My task(s)</ion-text>
+              <ion-badge color="success">{{shareNeedService.myTasks.length}}</ion-badge>
             </ion-card-subtitle>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card color="danger">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <ion-icon name="person-sharp"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="ion-text-center">
+            <ion-card-subtitle>My Profile</ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -84,11 +83,11 @@
         <ion-card color="danger">
           <ion-card-header>
             <ion-card-title class="ion-text-center">
-              <ion-icon name="settings-sharp"></ion-icon>
+              <ion-icon name="people-sharp"></ion-icon>
             </ion-card-title>
           </ion-card-header>
           <ion-card-content class="ion-text-center">
-            <ion-card-subtitle>Settings</ion-card-subtitle>
+            <ion-card-subtitle>Manage Users</ion-card-subtitle>
           </ion-card-content>
         </ion-card>
       </ion-col>
