@@ -19,10 +19,12 @@ export class DashboardPage implements OnInit {
   user = new User();
   ngOnInit() {    
     this.user = JSON.parse(localStorage.getItem('userDetails'));
-    this.allRequest = JSON.parse(localStorage.getItem('allRequest'));    
-    this.myRequests = this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Requests"]);    
-    this.openRequests = this.allRequest.filter(x => x.user.name != this.user.name && x.taskStatus == Tasks["Open Requests"]);    
-    this.myTasks = this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Tasks"]);    
+    this.allRequest = JSON.parse(localStorage.getItem('allRequest'));   
+    if(this.user && this.allRequest){       
+      this.myRequests = this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Requests"]);    
+      this.openRequests = this.allRequest.filter(x => x.user.name != this.user.name && x.taskStatus == Tasks["Open Requests"]);    
+      this.myTasks = this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Tasks"]);    
+    }
   }
 
   setDatasource(id: number) {

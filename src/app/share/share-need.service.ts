@@ -16,7 +16,7 @@ export class ShareNeedService {
     this.myRequest = [];
     this.myTasks = [];
     this.joinGroup = [];
-    this.applicationTitle = 'Covid-19-Lifline';
+    this.applicationTitle = 'Covid Life Line';
   }
   applicationTitle = 'Covid-19-Lifline';
   allRequest: Groceries[];
