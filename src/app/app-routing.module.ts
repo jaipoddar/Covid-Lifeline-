@@ -27,7 +27,6 @@ const routes: Routes = [
        { path: 'dashboard', component: DashboardPage},
        { path: 'about', component: AboutPage},
        { path: 'contact', component: ContactPage}
-       
     ]
   }
 ];
