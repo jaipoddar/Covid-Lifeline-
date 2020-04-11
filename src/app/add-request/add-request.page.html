@@ -35,7 +35,8 @@
         </ion-datetime>
       </ion-item>
       <ion-button (click)="addNewRequest($event)" [disabled]="!addRequest.valid">Submit</ion-button>
-      <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Cancel</ion-button>
+      <ion-button style="float: right; margin-right: 20px;" [routerLink]="['/dashboard']">Cancel</ion-button>
     </form>
   </ion-list>
 </ion-content>
+<app-tabs></app-tabs>
