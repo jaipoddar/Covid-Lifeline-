@@ -23,7 +23,7 @@ export class ApprovalModalComponent implements OnInit {
   }
   async help() {
     const onClosedData: string = "Wrapped Up!";
-    this.shareNeedService.allRequest.find(x => x.description == this.description).taskStatus = 1;
+    //this.shareNeedService.allRequest.find(x => x.details == this.description).taskStatus = 1;
     console.log(this.shareNeedService.allRequest);
     await this.presentToast();
     await this.modalController.dismiss(onClosedData);     
