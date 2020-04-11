@@ -9,9 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RequestsComponent } from './dashboard/requests/requests.component';
 import { JoinGroupPage } from './joingroup/joingroup.page';
 import { RegistrationComponent } from './registration/registration.component';
-<<<<<<< HEAD
 import {CreategroupPage} from './creategroup/creategroup.page';
-=======
 import { AuthGuardService } from './shared/auth-guard.service';
 
 const routes: Routes = [
