@@ -112,3 +112,9 @@ background-color:#d32f2f;
 .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
   padding: 20px 0;
 }
+.hydrated {
+  visibility: inherit;
+  --ion-item-background: transparent;
+  --ion-text-color: #000;
+  --color: #fff;
+}
