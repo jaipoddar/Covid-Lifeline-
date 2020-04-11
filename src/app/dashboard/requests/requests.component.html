@@ -10,9 +10,7 @@
     <ion-card-header>
       <ion-card-subtitle>
         <ion-text>{{status}}</ion-text>
-        <ion-badge *ngIf="taskId==1" color="success">{{shareNeedService.myRequest.length}}</ion-badge>
-        <ion-badge *ngIf="taskId==2" color="success">{{shareNeedService.allRequest.length}}</ion-badge>
-        <ion-badge *ngIf="taskId==3" color="success">{{shareNeedService.myTasks.length}}</ion-badge>
+        <ion-badge  color="success">{{dataSource.data.length}}</ion-badge>
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>

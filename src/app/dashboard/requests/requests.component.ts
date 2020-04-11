@@ -46,7 +46,7 @@ export class RequestsComponent implements OnInit {
   myTasks: Groceries[] = new Array<Groceries>();
   allRequest: Groceries[] = new Array<Groceries>();
   user = new User();
-  @Input() dataSource = new MatTableDataSource<Groceries>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<Groceries>(ELEMENT_DATA);
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       let id = +params.get('id');
@@ -56,24 +56,22 @@ export class RequestsComponent implements OnInit {
     });
   }
   setDatasource(id: number) {
-    // this.allRequest = JSON.parse(localStorage.getItem('allRequest'));
-    // this.user = JSON.parse(localStorage.getItem('userDetails'));
-    // switch (id) {
-    //   case 1:
-    //     this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name));
-    //     break;
-    //   case 2:
-    //     this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name));
-    //     break;
-    //   case 3:
-    //     this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name));
-    //     break;
-    //   default:
-    //     this.dataSource = null;
-    //     break;
-    // }
-
-    // this.selection = new SelectionModel<Groceries>(true, []);
+    this.allRequest = JSON.parse(localStorage.getItem('allRequest'));
+    this.user = JSON.parse(localStorage.getItem('userDetails'));
+    switch (id) {
+      case 1:
+        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Requests"]));
+        break;
+      case 2:
+        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["Open Requests"]));
+        break;
+      case 3:
+        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Tasks"]));
+        break;
+      default:
+        this.dataSource = null;
+        break;
+    }
   }
   async presentModal(element: Groceries) {
     this.showGrid = false;
