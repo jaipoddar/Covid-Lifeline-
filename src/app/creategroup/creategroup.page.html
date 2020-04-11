@@ -20,46 +20,46 @@
  <ion-item> 
     <ion-input type="text"   formControlName="phone" name="Phone" placeholder="Enter phone" required></ion-input>  
  </ion-item> -->
-  <ion-card *ngIf="showGroups">
-    <ion-card-content>
+ <ion-card>
+  <ion-card-content>
 
-      <table mat-table [dataSource]="dataSource">
+    <table mat-table [dataSource]="dataSource">
 
-        <!-- Checkbox Column -->
-        <ng-container matColumnDef="select">
-          <th mat-header-cell *matHeaderCellDef> Action </th>
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
 
-          <td mat-cell *matCellDef="let row">
-            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
-              [(ngModel)]="selectedGroup">
-              <mat-radio-button class="example-radio-button" [value]="row.groupName">
-              </mat-radio-button>
-            </mat-radio-group>
-          </td>
+        <td mat-cell *matCellDef="let row">
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="selectedGroup">
+            <mat-radio-button class="example-radio-button" [value]="row.groupName">
+            </mat-radio-button>
+          </mat-radio-group>
+        </td>
 
-        </ng-container>
+      </ng-container>
 
-        <!-- Group Name Column -->
-        <ng-container matColumnDef="groupName">
-          <th mat-header-cell *matHeaderCellDef> Group Name </th>
-          <td mat-cell *matCellDef="let element">
-            <ion-text>{{element.groupName}}</ion-text>
-          </td>
-        </ng-container>
+      <!-- Group Name Column -->
+      <ng-container matColumnDef="groupName">
+        <th mat-header-cell *matHeaderCellDef> Group Name </th>
+        <td mat-cell *matCellDef="let element">
+          <ion-text>{{element.groupName}}</ion-text>
+        </td>
+      </ng-container>
 
-        <!-- Address Column -->
-        <ng-container matColumnDef="shortAddress">
-          <th mat-header-cell *matHeaderCellDef> Location </th>
-          <td mat-cell *matCellDef="let element">
-            <ion-text>{{element.shortAddress}}</ion-text>
-          </td>
-        </ng-container>
+      <!-- Address Column -->
+      <ng-container matColumnDef="shortAddress">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element">
+          <ion-text>{{element.shortAddress}}</ion-text>
+        </td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
-        </tr>
-      </table>
-      <ion-button [routerLink]="['/tabs/dashboard']" color="success">Submit</ion-button>
-    </ion-card-content>
-  </ion-card>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+    <ion-button [routerLink]="['/tabs/dashboard']" color="success">Submit</ion-button>
+  </ion-card-content>
+</ion-card>
 </ion-content>
