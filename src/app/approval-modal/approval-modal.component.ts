@@ -12,7 +12,7 @@ export class ApprovalModalComponent implements OnInit {
 
   constructor(public modalController: ModalController, public shareNeedService: ShareNeedService, public toastController: ToastController) { }
   @Input() priority: string;
-  @Input() description: string;
+  @Input() details: string;
   @Input() taskStatus: number;
   @Input() validity: number;
   //@Output() refreshDashboard = new EventEmitter();
