@@ -61,13 +61,13 @@ export class RequestsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('userDetails'));
     switch (id) {
       case 1:
-        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Requests"]));
+        this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.allRequest);
         break;
       case 2:
-        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["Open Requests"]));
+        this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.allRequest);
         break;
       case 3:
-        this.dataSource = new MatTableDataSource<Groceries>(this.allRequest.filter(x => x.user.name == this.user.name && x.taskStatus == Tasks["My Tasks"]));
+        this.dataSource = new MatTableDataSource<Groceries>(this.shareNeedService.allRequest);
         break;
       default:
         this.dataSource = null;
@@ -75,7 +75,7 @@ export class RequestsComponent implements OnInit {
     }
     if(this.dataSource && this.dataSource.data.length>0){
     this.dataSource.data.forEach( x => {
-      x.days = this.getDays(x.validity);
+      x.days = 'Today';      
     });
     }
   }
