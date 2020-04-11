@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { NavController, LoadingController, ToastController } from '@ionic/angular'; 
-import {} from 'googlemaps';
+import {googlemaps} from 'googlemaps';
 import { Plugins, Geolocation } from '@capacitor/core';
 import { ShareNeedService } from '../share/share-need.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';

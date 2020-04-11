@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AlertController, LoadingController, ToastController  } from '@ionic/angular';
+import { ShareNeedService } from '../share/share-need.service';
 
 @Component({
   selector: 'share-need-next-add-request',
@@ -20,7 +21,7 @@ export class AddRequestPage implements OnInit {
     }
   );
   // tslint:disable-next-line:max-line-length
-  constructor(private fb: FormBuilder, public alertController: AlertController, public loadingController: LoadingController, public toastController: ToastController) { }
+  constructor(public shareNeedService: ShareNeedService,private fb: FormBuilder, public alertController: AlertController, public loadingController: LoadingController, public toastController: ToastController) { }
 
   ngOnInit() {
     // localStorage.setItem('allRequest', null);
