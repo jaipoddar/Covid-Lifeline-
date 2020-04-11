@@ -7,11 +7,9 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>
-        <ion-button style="float: right; margin-right: 20px;" [routerLink]="['']">Back</ion-button>
+      <ion-card-subtitle>       
         <ion-text>{{status}}</ion-text>
         <ion-badge  color="success">{{dataSource.data.length}}</ion-badge>
-
       </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
@@ -55,3 +53,4 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
+<app-tabs></app-tabs>
