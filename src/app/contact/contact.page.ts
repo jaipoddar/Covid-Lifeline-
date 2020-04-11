@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShareNeedService } from '../share/share-need.service';
 
 @Component({
   selector: 'share-need-next-contact',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactPage implements OnInit {
 
-  constructor() { }
+  constructor(public shareNeedService: ShareNeedService) { }
 
   ngOnInit() {
   }
