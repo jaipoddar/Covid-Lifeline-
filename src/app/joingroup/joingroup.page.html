@@ -1,13 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="light">
       <ion-title text-center>{{shareNeedService.applicationTitle}}</ion-title>
-      <ion-button (click)="showGroups = true;" color="success">Join Group</ion-button>
-      <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content *ngIf="showGroups">
-  <ion-card>
-
+<ion-content>
+  <ion-button (click)="showGroups = true;" color="success">Join Group</ion-button>
+  <ion-button [routerLink]="['/registration']" color="primary">Create Group</ion-button>
+  <ion-card *ngIf="showGroups">
     <ion-card-content>
 
       <table mat-table [dataSource]="dataSource">
