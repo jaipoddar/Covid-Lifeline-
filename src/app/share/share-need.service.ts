@@ -11,11 +11,13 @@ export class ShareNeedService {
   constructor() { 
     this.allRequest = [];
     this.myRequest = [];
-    this.closedRequest = [];
+    this.myTasks = [];
     this.joinGroup = [];
+    this.applicationTitle = 'Covid-19-Lifline';
   }
+  applicationTitle = 'Covid-19-Lifline';
   allRequest: Groceries[];
   myRequest: Groceries[];
-  closedRequest: Groceries[];
+  myTasks: Groceries[];
   joinGroup: Groups[];
 }

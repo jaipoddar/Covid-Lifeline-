@@ -12,7 +12,7 @@ import { JoinGroupPage } from './joingroup/joingroup.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs',
+    redirectTo: 'joingroup',
     pathMatch: 'full'
   },
   { path: 'requests/:id', component: RequestsComponent},

@@ -27,7 +27,7 @@ export class AppComponent {
       if (data && data.length > 0) {
         this.shareNeedService.allRequest = data;
         this.shareNeedService.myRequest = data.filter( x => x.taskStatus == Tasks['My Requests']);
-        this.shareNeedService.closedRequest = data.filter( x => x.taskStatus == Tasks['Closed Requests']);
+        this.shareNeedService.myTasks = data.filter( x => x.taskStatus == Tasks['My Tasks']);
       }
     });
 
